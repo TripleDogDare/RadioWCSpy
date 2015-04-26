@@ -45,7 +45,7 @@ class Database(database.Database):
 		try:
 			r.db_create(self.connection.db).run(self.connection)
 			r.table_create(self.table_name).run(self.connection)
-			r.
+			r.table(self.table_name).index_create('date')
 			print 'Database setup completed.'
 		except r.RqlRuntimeError:
 			print 'App database already exists..'
