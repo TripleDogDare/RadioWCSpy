@@ -1,0 +1,32 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+}
+
+.thumb {
+  float: left;
+  margin: ;
+  margin: -0.5em 0em -0.5em 0;
+  /*padding-bottom: 0;*/
+  height: 50px;
+  width: 50px;
+}
+
+thead {
+  background-color: lightblue;
+}
+
+
+.even {
+  background-color: white;
+}
+
+.odd {
+  background-color: #eee;
+}
+.
+
+h1 {
+  border-bottom: 1px solid gray;
+}

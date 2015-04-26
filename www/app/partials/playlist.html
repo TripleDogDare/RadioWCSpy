@@ -1,0 +1,55 @@
+
+<div class="col-md-10">
+	<!-- Body content -->
+	<div class="container-fluid">
+		<!--sidebar content-->
+		<dl>
+			<dt>
+				Filter:
+			</dt>
+			<dd>
+				<input ng-model="query">
+			</dd>
+			<dt>
+				Sort by:
+			</dt>
+			<dd>
+				<select ng-model="orderProp">
+					<option value="artist">Artist Asc</option>
+					<option value="-artist">Artist Desc</option>
+					<option value="title">Track Asc</option>
+					<option value="-title">Track Desc</option>
+					<option value="-date">Newest</option>
+					<option value="date">Oldest</option>
+				</select>
+			</dd>
+		</dl>
+	</div>
+	<div class="container-fluid">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Thumbnail</th>
+					<th>Artist</th>
+					<th>Track</th>
+					<th>Genre</th>
+					<th>bpm</th>
+					<th>Played</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="track in playlist | filter:query | orderBy:orderProp" class="listing" ng-class="{odd: $odd}">
+					<th> {{$index + 1}}</th>
+					<td> <img ng-src="http://radiowcs.com/pochettes/{{track.image}}" class="thumb"> </td>
+					<td> {{track.artist | emptyX }} </td>
+					<td> {{track.title | emptyX }} </td>
+					<td> {{track.genre | emptyX }} </td>
+					<td> {{track.bpm | emptyX }} </td>
+					<td> {{track.date * 1000 | date:"dd/MM/yyyy @ h:mma"}} </td>
+				</tr>	
+			</tbody>
+		</table>
+	</div>
+
+</div>

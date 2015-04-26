@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Truncate
+>./authorized_keys
+
+# Generate file
+for filename in ./*.pub; do
+        cat $filename >> ./authorized_keys
+done

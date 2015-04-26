@@ -1,0 +1,11 @@
+<uwsgi>
+  <plugins>python</plugins>
+  <virtualenv>/app/web/env</virtualenv>
+
+  <socket>127.0.0.1:9000</socket>
+  <chdir>/app/web/env</chdir>
+  <pythonpath>/app/web/env/lib/python2.7/site-packages</pythonpath>
+  <pythonpath>/app/web</pythonpath>
+  <callable>/app/web</callable>
+  <module>wsgihandler</module>
+</uwsgi>
