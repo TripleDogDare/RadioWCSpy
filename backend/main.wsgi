@@ -11,7 +11,7 @@ if __name__ == '__main__':
 	from paste import httpserver
 	
 	arg_parser.add_argument('--host', default='127.0.0.1', help='IP address binding [127.0.0.1]')
-	arg_parser.add_argument('--port', default='80', help='TCP listening port [8080]')
+	arg_parser.add_argument('--port', default='80', help='TCP listening port [80]')
 	arg_parser.add_argument('--db_uri', default='localhost', help='Database URI')
 	arg_parser.add_argument('--db_port', default=28015, help='Database port')
 	args = arg_parser.parse_args()
