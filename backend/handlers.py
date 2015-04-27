@@ -2,6 +2,7 @@ import webapp2
 import logging
 import rethinkdb as r
 import db_rethink as database
+import json
 
 #TODO: runs on a single connection for now, will make a pool eventually
 db = database.Database()
@@ -33,7 +34,7 @@ class Count(webapp2.RequestHandler):
 		try:
 			data = db.count()
 			self.response.headers.add('Content-Type', 'application/json')
-			self.response.write( data )
+			self.response.write( json.dumps(data) )
 		except Exception, e:
 			handle_500(self.request, self.response, e)
 
@@ -42,7 +43,7 @@ class Recent(webapp2.RequestHandler):
 		try:
 			data = db.recent(skip=page*100, qty=100)
 			self.response.headers.add('Content-Type', 'application/json')
-			self.response.write( data )
+			self.response.write( json.dumps(data) )
 		except Exception, e:
 			handle_500(self.request, self.response, e)
 
@@ -51,6 +52,6 @@ class Genres(webapp2.RequestHandler):
 		try:
 			data =  db.count_genres()
 			self.response.headers.add('Content-Type', 'application/json')
-			self.response.write( data )
+			self.response.write( json.dumps(data) )
 		except Exception, e:
 			handle_500(self.request, self.response, e)
