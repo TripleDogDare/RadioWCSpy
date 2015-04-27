@@ -9,7 +9,6 @@ db = database.Database()
 db.configure()
 db.connect()
 
-
 def handle_404(request, response, exception):
     logging.exception(exception)
     response.write('Oops! I could swear this page was here!')
