@@ -32,7 +32,7 @@ class Count(webapp2.RequestHandler):
 	def get(self):
 		try:
 			data = db.count()
-			self.response.headers.add('Content-Type', 'text/json')
+			self.response.headers.add('Content-Type', 'application/json')
 			self.response.write( data )
 		except Exception, e:
 			handle_500(self.request, self.response, e)
@@ -41,7 +41,7 @@ class Recent(webapp2.RequestHandler):
 	def get(self, page=0):
 		try:
 			data = db.recent(skip=page*100, qty=100)
-			self.response.headers.add('Content-Type', 'text/json')
+			self.response.headers.add('Content-Type', 'application/json')
 			self.response.write( data )
 		except Exception, e:
 			handle_500(self.request, self.response, e)
@@ -50,7 +50,7 @@ class Genres(webapp2.RequestHandler):
 	def get(self):
 		try:
 			data =  db.count_genres()
-			self.response.headers.add('Content-Type', 'text/json')
+			self.response.headers.add('Content-Type', 'application/json')
 			self.response.write( data )
 		except Exception, e:
 			handle_500(self.request, self.response, e)
